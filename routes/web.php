@@ -10,6 +10,10 @@ Route::get('/api/docs', function () {
     return view('swagger');
 });
 
+Route::get('/api/tes', function () {
+    return view('tes');
+});
+
 Route::get('/phpmyinfo', function () {
     phpinfo();
 })->name('phpmyinfo');
