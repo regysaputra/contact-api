@@ -10,7 +10,7 @@ Route::get('/api/docs', function () {
     return view('swagger');
 });
 
-Route::get('/api/tes', function () {
+Route::get('/tes', function () {
     return view('tes');
 });
 
