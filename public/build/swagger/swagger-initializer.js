@@ -3,7 +3,7 @@ window.onload = function() {
 
   // the following lines will be replaced by docker/configurator, when it runs in a docker-container
   window.ui = SwaggerUIBundle({
-    url: "https://contact-api-sigma.vercel.app/swagger_ui/yaml/docs.yaml",
+    url: "https://contact-api-sigma.vercel.app/build/swagger/docs.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [
