@@ -271,7 +271,11 @@ paths:
       description: Get contact
       parameters:
         - name: id
+          description: contact id for get detail contact
           in: path
+          required: true
+          schema:
+            type: integer
       security:
         - bearerAuth: []
       responses:
@@ -297,13 +301,17 @@ paths:
                         type: string
                   errors:
                     type: object
-    put:
+    patch:
       tags:
         - contact
       description: Update contact
       parameters:
         - name: id
+          description: contact id for update specific contact
           in: path
+          required: true
+          schema:
+            type: integer
       security:
         - bearerAuth: []
       requestBody:
@@ -350,7 +358,11 @@ paths:
       description: Remove contact
       parameters:
         - name: id
+          description: contact id for delete specific contact
           in: path
+          required: true
+          schema:
+            type: integer
       security:
         - bearerAuth: []
       responses:
@@ -372,7 +384,11 @@ paths:
       description: Create new address
       parameters:
         - name: idContact
+          description: contact id to get the contact where the address is located
           in: path
+          required: true
+          schema:
+            type: integer
       security:
         - bearerAuth: []
       requestBody:
@@ -423,7 +439,11 @@ paths:
       description: Get list address
       parameters:
         - name: idContact
+          description: contact id to get the contact where the address is located
           in: path
+          required: true
+          schema:
+            type: integer
       security:
         - bearerAuth: []
       responses:
@@ -445,9 +465,17 @@ paths:
       description: Get address
       parameters:
         - name: idContact
+          description: contact id to get the contact where the address is located
           in: path
+          required: true
+          schema:
+            type: integer
         - name: idAddress
+          description: address id to get specific address
           in: path
+          required: true
+          schema:
+            type: integer
       security:
         - bearerAuth: []
       responses:
@@ -475,15 +503,23 @@ paths:
                         type: string
                   errors:
                     type: object
-    put:
+    patch:
       tags:
         - address
       description: Update address
       parameters:
         - name: idContact
+          description: contact id to get the contact where the address is located
           in: path
+          required: true
+          schema:
+            type: integer
         - name: idAddress
+          description: address id to get specific address
           in: path
+          required: true
+          schema:
+            type: integer
       security:
         - bearerAuth: []
       requestBody:
@@ -534,9 +570,17 @@ paths:
       description: Delete address
       parameters:
         - name: idContact
+          description: contact id to get the contact where the address is located
           in: path
+          required: true
+          schema:
+            type: integer
         - name: idAddress
+          description: address id to get specific address
           in: path
+          required: true
+          schema:
+            type: integer
       security:
         - bearerAuth: []
       responses:

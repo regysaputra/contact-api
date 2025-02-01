@@ -4,9 +4,17 @@ get:
   description: Get address
   parameters:
     - name: idContact
+      description: contact id to get the contact where the address is located
       in: path
+      required: true
+      schema:
+        type: integer
     - name: idAddress
+      description: address id to get specific address
       in: path
+      required: true
+      schema:
+        type: integer
   security:
     - bearerAuth: [ ]
   responses:
@@ -34,15 +42,23 @@ get:
                     type: string
               errors:
                 type: object
-put:
+patch:
   tags:
     - address
   description: Update address
   parameters:
     - name: idContact
+      description: contact id to get the contact where the address is located
       in: path
+      required: true
+      schema:
+        type: integer
     - name: idAddress
+      description: address id to get specific address
       in: path
+      required: true
+      schema:
+        type: integer
   security:
     - bearerAuth: []
   requestBody:
@@ -93,9 +109,17 @@ delete:
   description: Delete address
   parameters:
     - name: idContact
+      description: contact id to get the contact where the address is located
       in: path
+      required: true
+      schema:
+        type: integer
     - name: idAddress
+      description: address id to get specific address
       in: path
+      required: true
+      schema:
+        type: integer
   security:
     - bearerAuth: []
   responses:

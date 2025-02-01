@@ -4,7 +4,11 @@ get:
   description: Get contact
   parameters:
     - name: id
+      description: contact id for get detail contact
       in: path
+      required: true
+      schema:
+        type: integer
   security:
     - bearerAuth: []
   responses:
@@ -30,13 +34,17 @@ get:
                     type: string
               errors:
                 type: object
-put:
+patch:
   tags:
     - contact
   description: Update contact
   parameters:
     - name: id
+      description: contact id for update specific contact
       in: path
+      required: true
+      schema:
+        type: integer
   security:
     - bearerAuth: [ ]
   requestBody:
@@ -83,7 +91,11 @@ delete:
   description: Remove contact
   parameters:
     - name: id
+      description: contact id for delete specific contact
       in: path
+      required: true
+      schema:
+        type: integer
   security:
     - bearerAuth: [ ]
   responses:

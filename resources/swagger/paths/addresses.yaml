@@ -4,7 +4,11 @@ post:
   description: Create new address
   parameters:
     - name: idContact
+      description: contact id to get the contact where the address is located
       in: path
+      required: true
+      schema:
+        type: integer
   security:
     - bearerAuth: []
   requestBody:
@@ -55,7 +59,11 @@ get:
   description: Get list address
   parameters:
     - name: idContact
+      description: contact id to get the contact where the address is located
       in: path
+      required: true
+      schema:
+        type: integer
   security:
     - bearerAuth: []
   responses:
