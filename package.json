@@ -3,7 +3,8 @@
     "type": "module",
     "scripts": {
         "build": "vite build",
-        "dev": "vite"
+        "dev": "vite",
+        "doc": "redocly bundle resources/swagger/index.yaml --output public/build/swagger/docs.yaml"
     },
     "devDependencies": {
         "autoprefixer": "^10.4.20",
@@ -13,5 +14,8 @@
         "postcss": "^8.4.47",
         "tailwindcss": "^3.4.13",
         "vite": "^6.0"
+    },
+    "dependencies": {
+        "dotenv": "^16.4.7"
     }
 }

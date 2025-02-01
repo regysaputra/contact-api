@@ -1,10 +1,13 @@
-openapi: 3.0.3
+openapi: 3.0.0
 info:
   title: Contact Management API
-  description: Contact Management API
   version: 1.0.0
+  license:
+    name: MIT
+    url: https://opensource.org/license/mit
+  description: RESTful API for contact app
 servers:
-  - url: https://contact-management-api-six.vercel.app
+  - url: https://contact-api-sigma.vercel.app
 paths:
   /api/users:
     post:
@@ -96,11 +99,10 @@ paths:
       tags:
         - user
       description: Get current user
-      parameters:
-        - name: Authorization
-          in: header
+      security:
+        - bearerAuth: []
       requestBody:
-        description: Update current user
+        description: Get current user
         content:
           application/json:
             schema:
@@ -133,9 +135,8 @@ paths:
       tags:
         - user
       description: Update current user
-      parameters:
-        - name: Authorization
-          in: header
+      security:
+        - bearerAuth: []
       responses:
         '200':
           description: Success update user
@@ -160,9 +161,8 @@ paths:
       tags:
         - user
       description: Logout current user
-      parameters:
-        - name: Authorization
-          in: header
+      security:
+        - bearerAuth: []
       responses:
         '200':
           description: Success logout user
@@ -180,9 +180,8 @@ paths:
       tags:
         - contact
       description: Create new contact
-      parameters:
-        - name: Authorization
-          in: header
+      security:
+        - bearerAuth: []
       requestBody:
         description: Create new contact
         content:
@@ -226,8 +225,6 @@ paths:
         - contact
       description: Search contact
       parameters:
-        - name: Authorization
-          in: header
         - name: name
           in: query
         - name: phone
@@ -238,6 +235,8 @@ paths:
           in: query
         - name: page
           in: query
+      security:
+        - bearerAuth: []
       responses:
         '200':
           description: Success search contacts
@@ -265,16 +264,16 @@ paths:
                     type: object
                   meta:
                     type: object
-  /api/contacs/{id}:
+  /api/contacts/{id}:
     get:
       tags:
         - contact
       description: Get contact
       parameters:
-        - name: Authorization
-          in: header
         - name: id
           in: path
+      security:
+        - bearerAuth: []
       responses:
         '200':
           description: Success get contact
@@ -303,10 +302,10 @@ paths:
         - contact
       description: Update contact
       parameters:
-        - name: Authorization
-          in: header
         - name: id
           in: path
+      security:
+        - bearerAuth: []
       requestBody:
         description: Update contact
         content:
@@ -350,10 +349,10 @@ paths:
         - contact
       description: Remove contact
       parameters:
-        - name: Authorization
-          in: header
         - name: id
           in: path
+      security:
+        - bearerAuth: []
       responses:
         '200':
           description: Success delete contact
@@ -372,10 +371,10 @@ paths:
         - address
       description: Create new address
       parameters:
-        - name: Authorization
-          in: header
         - name: idContact
           in: path
+      security:
+        - bearerAuth: []
       requestBody:
         description: Create new address
         content:
@@ -423,10 +422,10 @@ paths:
         - address
       description: Get list address
       parameters:
-        - name: Authorization
-          in: header
         - name: idContact
           in: path
+      security:
+        - bearerAuth: []
       responses:
         '200':
           description: List address
@@ -445,12 +444,12 @@ paths:
         - address
       description: Get address
       parameters:
-        - name: Authorization
-          in: header
         - name: idContact
           in: path
         - name: idAddress
           in: path
+      security:
+        - bearerAuth: []
       responses:
         '201':
           description: Success create address
@@ -481,12 +480,12 @@ paths:
         - address
       description: Update address
       parameters:
-        - name: Authorization
-          in: header
         - name: idContact
           in: path
         - name: idAddress
           in: path
+      security:
+        - bearerAuth: []
       requestBody:
         description: Update existing contact address
         content:
@@ -534,12 +533,12 @@ paths:
         - address
       description: Delete address
       parameters:
-        - name: Authorization
-          in: header
         - name: idContact
           in: path
         - name: idAddress
           in: path
+      security:
+        - bearerAuth: []
       responses:
         '200':
           description: Success delete
@@ -565,4 +564,10 @@ paths:
                         type: string
                   errors:
                     type: object
-
+components:
+  securitySchemes:
+    bearerAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Enter the token with the Bearer prefix, e.g. "Bearer MJyde36e8"

@@ -1,0 +1,61 @@
+get:
+  tags:
+    - user
+  description: Get current user
+  security:
+    - bearerAuth: []
+  requestBody:
+    description: Get current user
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            name:
+              type: string
+            password:
+              type: string
+  responses:
+    '200':
+      description: Success get current user
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  id:
+                    type: number
+                  username:
+                    type: string
+                  name:
+                    type: string
+              errors:
+                type: object
+patch:
+  tags:
+    - user
+  description: Update current user
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Success update user
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  id:
+                    type: number
+                  username:
+                    type: string
+                  name:
+                    type: string
+              errors:
+                type: object

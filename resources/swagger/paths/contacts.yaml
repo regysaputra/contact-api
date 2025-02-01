@@ -1,0 +1,88 @@
+post:
+  tags:
+    - contact
+  description: Create new contact
+  security:
+    - bearerAuth: [ ]
+  requestBody:
+    description: Create new contact
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            first_name:
+              type: string
+            last_name:
+              type: string
+            email:
+              type: string
+            phone:
+              type: string
+  responses:
+    '200':
+      description: Success create contact
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  id:
+                    type: number
+                  first_name:
+                    type: string
+                  last_name:
+                    type: string
+                  email:
+                    type: string
+                  phone:
+                    type: string
+              errors:
+                type: object
+get:
+  tags:
+    - contact
+  description: Search contact
+  parameters:
+    - name: name
+      in: query
+    - name: phone
+      in: query
+    - name: email
+      in: query
+    - name: size
+      in: query
+    - name: page
+      in: query
+  security:
+    - bearerAuth: [ ]
+  responses:
+    '200':
+      description: Success search contacts
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                    first_name:
+                      type: string
+                    last_name:
+                      type: string
+                    email:
+                      type: string
+                    phone:
+                      type: string
+              errors:
+                type: object
+              meta:
+                type: object

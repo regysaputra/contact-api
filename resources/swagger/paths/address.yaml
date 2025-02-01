@@ -1,0 +1,125 @@
+get:
+  tags:
+    - address
+  description: Get address
+  parameters:
+    - name: idContact
+      in: path
+    - name: idAddress
+      in: path
+  security:
+    - bearerAuth: [ ]
+  responses:
+    '201':
+      description: Success create address
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  id:
+                    type: number
+                  street:
+                    type: string
+                  city:
+                    type: string
+                  province:
+                    type: string
+                  country:
+                    type: string
+                  postal_code:
+                    type: string
+              errors:
+                type: object
+put:
+  tags:
+    - address
+  description: Update address
+  parameters:
+    - name: idContact
+      in: path
+    - name: idAddress
+      in: path
+  security:
+    - bearerAuth: []
+  requestBody:
+    description: Update existing contact address
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            street:
+              type: string
+            city:
+              type: string
+            province:
+              type: string
+            country:
+              type: string
+            postal_code:
+              type: string
+  responses:
+    '201':
+      description: Success update address
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  id:
+                    type: number
+                  street:
+                    type: string
+                  city:
+                    type: string
+                  province:
+                    type: string
+                  country:
+                    type: string
+                  postal_code:
+                    type: string
+              errors:
+                type: object
+delete:
+  tags:
+    - address
+  description: Delete address
+  parameters:
+    - name: idContact
+      in: path
+    - name: idAddress
+      in: path
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Success delete
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: boolean
+                properties:
+                  id:
+                    type: number
+                  street:
+                    type: string
+                  city:
+                    type: string
+                  province:
+                    type: string
+                  country:
+                    type: string
+                  postal_code:
+                    type: string
+              errors:
+                type: object

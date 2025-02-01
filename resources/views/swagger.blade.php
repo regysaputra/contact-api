@@ -15,6 +15,6 @@
     <div id="swagger-ui"></div>
     <script src="{{ asset('build/swagger/swagger-ui-bundle.js') }}" charset="UTF-8"> </script>
     <script src="{{ asset('build/swagger/swagger-ui-standalone-preset.js') }}" charset="UTF-8"> </script>
-    <script src="{{ asset('build/swagger/swagger-initializer.js') }}" charset="UTF-8"> </script>
+    <script type="module" src="{{ asset('build/swagger/swagger-initializer.js') }}" charset="UTF-8"> </script>
   </body>
 </html>

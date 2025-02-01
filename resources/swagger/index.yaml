@@ -1,0 +1,36 @@
+openapi: "3.0.0"
+info:
+  title:  Contact Management API
+  version: 1.0.0
+  license:
+    name: MIT
+    url: https://opensource.org/license/mit
+  description: RESTful API for contact app
+servers:
+  - url: https://contact-api-sigma.vercel.app
+paths:
+  /api/users:
+    $ref: paths/register.yaml
+  /api/users/login:
+    $ref: paths/login.yaml
+  /api/users/current:
+    $ref: paths/current-user.yaml
+  /api/users/logout:
+    $ref: paths/logout.yaml
+  /api/contacts:
+    $ref: paths/contacts.yaml
+  /api/contacts/{id}:
+    $ref: paths/contact.yaml
+  /api/contacts/{idContact}/addresses:
+    $ref: paths/addresses.yaml
+  /api/contacts/{idContact}/addresses/{idAddress}:
+    $ref: paths/address.yaml
+components:
+  securitySchemes:
+    bearerAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Enter the token with the Bearer prefix, e.g. "Bearer MJyde36e8"
+#  schemas:
+#    $ref: schemas/index.yaml
