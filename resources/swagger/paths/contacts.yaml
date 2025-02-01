@@ -49,14 +49,34 @@ get:
   parameters:
     - name: name
       in: query
+      schema:
+        type: string
+      required: false
+      description: The endpoint return last name or first name that contain name
     - name: phone
       in: query
+      schema:
+        type: string
+      required: false
+      description: The endpoint returns phone number
     - name: email
       in: query
+      schema:
+        type: string
+      required: false
+      description: The endpoint returns email
     - name: size
       in: query
+      schema:
+        type: integer
+      required: false
+      description: The endpoint returns size
     - name: page
       in: query
+      schema:
+        type: integer
+      required: false
+      description: The endpoint returns page
   security:
     - bearerAuth: [ ]
   responses:
